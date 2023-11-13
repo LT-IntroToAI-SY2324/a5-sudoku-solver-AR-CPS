@@ -188,6 +188,7 @@ def DFS(state: Board) -> Board:
     the_stack = Stack()
     the_stack.push(state)
     while not the_stack.is_empty():
+        print(the_stack)
         curr = the_stack.pop()
         if curr.goal_test():
             return curr
