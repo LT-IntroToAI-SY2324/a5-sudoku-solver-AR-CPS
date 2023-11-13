@@ -193,6 +193,7 @@ def DFS(state: Board) -> Board:
             return curr
         elif not curr.failure_test():
             row, col = curr.find_most_constrained_cell()
+            sel = curr.rows[row][col]
             for sel in curr.rows[row][col]:
                 # Create a copy of the board
                 cpy = copy.deepcopy(curr)
@@ -235,22 +236,22 @@ if __name__ == "__main__":
     # b.print_pretty()
     # print(b)
     # CODE BELOW HERE RUNS YOUR BFS/DFS
-    print("<<<<<<<<<<<<<< Solving Sudoku >>>>>>>>>>>>>>")
+    # print("<<<<<<<<<<<<<< Solving Sudoku >>>>>>>>>>>>>>")
 
-    def test_dfs_or_bfs(use_dfs: bool, moves: List[Tuple[int, int, int]]) -> None:
-        b = Board()
-        # make initial moves to set up board
-        for move in moves:
-            b.update(*move)
+    # def test_dfs_or_bfs(use_dfs: bool, moves: List[Tuple[int, int, int]]) -> None:
+    #     b = Board()
+    #     # make initial moves to set up board
+    #     for move in moves:
+    #         b.update(*move)
 
-        # print initial board
-        print("<<<<< Initial Board >>>>>")
-        b.print_pretty()
-        # solve board
-        solution = (DFS if use_dfs else BFS)(b)
-        # print solved board
-        print("<<<<< Solved Board >>>>>")
-        solution.print_pretty()
+    #     # print initial board
+    #     print("<<<<< Initial Board >>>>>")
+    #     b.print_pretty()
+    #     # solve board
+    #     solution = (DFS if use_dfs else BFS)(b)
+    #     # print solved board
+    #     print("<<<<< Solved Board >>>>>")
+    #     solution.print_pretty()
 
     # sets of moves for the different games
     first_moves = [
