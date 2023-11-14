@@ -204,7 +204,7 @@ def DFS(state: Board) -> Board:
         count += 1
         # print(curr)
         if curr.goal_test():
-            print(f"It took {count} iterations to solve")
+            print(f"depth first took {count} iterations to solve")
             return curr
         elif not curr.failure_test():
             row, col = curr.find_most_constrained_cell()
@@ -236,7 +236,24 @@ def BFS(state: Board) -> Board:
     Returns:
         either None in the case of invalid input or a solved board
     """
-    pass
+    the_que =[state]
+    count = 0
+
+    while not the_que.is_empty():
+        curr = the_que.pop()
+        count += 1
+        if curr.goal_test():
+            print(f"breadth first took {count} iterations to solve")
+            return curr
+        elif not curr.failure_test():
+            row, col = curr.find_most_constrained_cell()
+            mcc = curr.rows[row][col]
+            for sel in mcc:
+                cpy = copy.deepcopy(curr) 
+                cpy.update(row, col, sel)
+                the_que.push(cpy)
+
+    return None
 
 
 if __name__ == "__main__":
