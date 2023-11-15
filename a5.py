@@ -236,7 +236,7 @@ def BFS(state: Board) -> Board:
     Returns:
         either None in the case of invalid input or a solved board
     """
-    the_que =[state]
+    the_que =Queue([state])
     count = 0
 
     while not the_que.is_empty():
