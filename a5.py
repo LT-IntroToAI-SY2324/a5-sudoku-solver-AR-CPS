@@ -236,11 +236,11 @@ def BFS(state: Board) -> Board:
     Returns:
         either None in the case of invalid input or a solved board
     """
-    the_que =Queue([state])
+    the_queue =Queue([state])
     count = 0
 
-    while not the_que.is_empty():
-        curr = the_que.pop()
+    while not the_queue.is_empty():
+        curr = the_queue.pop()
         count += 1
         if curr.goal_test():
             print(f"breadth first took {count} iterations to solve")
@@ -251,7 +251,7 @@ def BFS(state: Board) -> Board:
             for sel in mcc:
                 cpy = copy.deepcopy(curr) 
                 cpy.update(row, col, sel)
-                the_que.push(cpy)
+                the_queue.push(cpy)
 
     return None
 
